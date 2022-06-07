@@ -27,7 +27,7 @@ if input_saas.lower() == "n":
 	else:
 		data = requests.post(url_category, json={'password' : input_key})
 else:
-	data = requests.post(url_category, json={'timeperiod' : input_timePeriod, 'pin' : input_key}) 
+	data = requests.post(url_category, json={'pin' : input_key}) 
 # checking the status code of the request
 #print(data.json())
 #exit()
