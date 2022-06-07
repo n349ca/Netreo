@@ -36,7 +36,7 @@ Takes into account SaaS or appliance systems and on appliances
 Exports Netreo list of Sites to a CSV format into C:\temp directory (windows)
 Script will use SaaS or appliance based systems with or without the API Key.
 
-## category-list.py
+### category-list.py
 Exports Netreo's list of Categories to a CSV format into C:\temp directory (windows)
 Script will use SaaS or appliance based systems with or without the API Key.
 
