@@ -1,5 +1,6 @@
 # Netreo
 Collection of Python Scripts for use with the Netreo API
+All scripts and executables use HTTPS
 There are different python scripts to support Netreo API access.
 These were developed on Python 3.x
 Executables must be run from from a command line window
