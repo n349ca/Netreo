@@ -2,7 +2,7 @@
 Collection of Python Scripts for use with the Netreo API
 There are different python scripts to support Netreo API access.
 These were developed on Python 3.x
-Executables must be run from from the command line
+Executables must be run from from a command line window
 For Windows 10 and 11
 1. Click on your windows start menu (or press your windows button on the keyboard)
 2. Type **CMD** and hit enter
