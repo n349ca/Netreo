@@ -1,0 +1,5 @@
+curl --request POST \
+  --url 'http://YOUR_SERVER_HERE/fw/index.php?r=restful%2Fdevices%2Fservices' \
+  --header 'content-type: multipart/form-data' \
+  --form password=YOUR_API_KEY_HERE \
+  --form dev_name=YOUR_DEVICE_NAME_HERE
