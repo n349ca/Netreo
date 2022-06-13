@@ -1,6 +1,14 @@
 # Netreo
 Collection of Python Scripts for use with the Netreo API
 All scripts and executables use HTTPS
+
+    Must install json, requests, and csv in python
+      1. Open a command line window 
+      2. change to your python directory
+      3. type - pip install csv
+      4. type - pip install json
+      5. type - pip install requests
+    
 There are different python scripts to support Netreo API access.
 These were developed on Python 3.x
 Executables must be run from from a command line window
