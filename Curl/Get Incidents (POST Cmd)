@@ -1,0 +1,2 @@
+curl --request POST \
+  --url 'https://YOUR_SERVER_HERE/api/incident_api.php?method_request=getincidents&pwd=YOUR_API_KEY_HERE'
