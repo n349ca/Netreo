@@ -1,0 +1,4 @@
+curl --request POST \
+  --url 'https://YOUR_SERVER_HERE/fw/index.php?r=restful%2Fsite%2Flist&password=92jFQASGhM66xFt8KdXqNtcy7Xa7Baem' \
+  --header 'Content-Type: multipart/form-data' \
+  --form password=YOUR_API_KEY_HERE
