@@ -1,0 +1,4 @@
+curl --request POST \
+  --url 'http://YOUR_SERVER_HERE/fw/index.php?r=restful%2Fcategory%2Flist' \
+  --header 'content-type: multipart/form-data' \
+  --form password=YOUR_API_KEY_HERE
