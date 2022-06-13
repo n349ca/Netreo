@@ -1,0 +1,4 @@
+curl --request POST \
+  --url 'http://YOUR_SERVER_NAME_HERE/fw/index.php?r=restful%2Fstrategic-group%2Flist' \
+  --header 'content-type: multipart/form-data' \
+  --form password=YOUR_API_KEY_HERE
