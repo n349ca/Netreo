@@ -12,6 +12,6 @@ There are 6 API calls that this file will setup for you in Incomnia
 3. POST - Category List (List all categories)
 4. POST - Audit Log (retrieve the last hour of the audit log)
 
-          Change timeperiod to **lasthr**, **24hr**, or **7dy** for different timeframe
+          Change timeperiod to lasthr, 24hr, or 7dy for different timeframes
 5. POST Strategic Group List (List all strategic groups)
 6. POST - Site List (List all sites)
