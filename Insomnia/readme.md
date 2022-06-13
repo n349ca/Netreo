@@ -1,5 +1,7 @@
 # Insomnia Import File
-To use this file you will have to replace all :
+Insomnia tool may be downloaded from https://insomnia.rest/download
+
+To use this file you will have to replace all references:
 * YOUR_SERVER_HERE with your server name or IP
 * YOUR_API_KEY_HERE with the Netreo API key
 * DEVICE_YOU_WANT_DATA_FOR with an actual device in your Netreo deployment
