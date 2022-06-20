@@ -1,0 +1,69 @@
+
+
+Public Sub GetDeviceInfoCapture() '----- get a specific device WORKS ON PROD - With/without  API KEY
+   Call SetVars
+   'URL = URL + "/api/device_info_api.php?ip=10.79.120.227&method=getInfo"
+   '/api/device_info_api.php?ip=10.1.43.41&method=getInfo&pwd={{API}}
+   URL = URL + "/api/device_info_api.php?method=getInfo"
+   deviceIP = Range("B9").Value
+   If UsePassword = True Then
+        URL = URL + "&ip=" + deviceIP + "&pwd=" + passwd
+        'HTMLBody = "{""pwd"":""" + passwd + """,""ip"":""" + deviceIP + """}"
+        Else
+            URL = URL + "&ip=" + deviceIP
+        End If
+   '------------system ------------------------------------------
+   'http.Open "GET", "https://oc-prod-epoc.corp.internal.citizensbank.com/api/device_info_api.php?ip=10.79.120.227&method=getInfo", False
+   http.Open "POST", URL, False
+   http.setRequestHeader "Content-Type", "application/json"
+   http.send
+   Debug.Print http.responseText
+
+   JsonString = http.responseText
+   
+   colonReplace = Chr(34) + ":" + Chr(34)
+   commaReplace = Chr(34) + "," + Chr(34)
+   JsonString = Replace(JsonString, "},", vbCrLf)
+   JsonString = Replace(JsonString, commaReplace, "%")
+   JsonString = Replace(JsonString, colonReplace, "%")
+   
+
+ '=============================================================================================
+    ' Now process the captured data - insert into a new workbook
+ '=============================================================================================
+    Range("A12").Select
+    inc = 0
+    incCol = 0
+    incLine = 12
+    For loop1 = 2 To Len(JsonString) '-- loop to the end of the JSON file
+        If Mid(JsonString, loop1, 1) = "%" Then
+              Select Case inc
+              Case 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27
+                  ActiveCell.Offset(0, incCol).Range("A1").Value = tempString
+                  inc = inc + 1
+                  incCol = incCol + 1
+                  tempString = ""
+               Case Else
+                  tempString = ""
+                  inc = inc + 1
+               End Select
+            ElseIf Mid(JsonString, loop1, 1) = vbCr Then
+               ActiveCell.Offset(0, incCol).Range("A1").Value = tempString
+               newCell = "A" + Trim(Str(incLine))
+               Range(newCell).Select
+               tempString = ""
+               incLine = incLine + 1
+               inc = 0
+               incCol = 0
+            Else
+               tempString = tempString + Mid(JsonString, loop1, 1)
+            End If
+    Next loop1
+    
+    Application.ScreenUpdating = True
+    Application.EnableEvents = False
+    Application.Calculation = xlCalculationAutomatic
+   
+   'MsgBox http.responseText
+   'MsgBox http.Status
+End Sub
