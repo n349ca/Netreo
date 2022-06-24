@@ -1,69 +1,195 @@
+Public jString, srchTxt As String
+Public StartHere, StartVal, endVal As Long
 
 
-Public Sub GetDeviceInfoCapture() '----- get a specific device WORKS ON PROD - With/without  API KEY
-   Call SetVars
-   'URL = URL + "/api/device_info_api.php?ip=10.79.120.227&method=getInfo"
-   '/api/device_info_api.php?ip=10.1.43.41&method=getInfo&pwd={{API}}
-   URL = URL + "/api/device_info_api.php?method=getInfo"
-   deviceIP = Range("B9").Value
-   If UsePassword = True Then
-        URL = URL + "&ip=" + deviceIP + "&pwd=" + passwd
-        'HTMLBody = "{""pwd"":""" + passwd + """,""ip"":""" + deviceIP + """}"
-        Else
-            URL = URL + "&ip=" + deviceIP
-        End If
-   '------------system ------------------------------------------
-   'http.Open "GET", "https://oc-prod-epoc.corp.internal.citizensbank.com/api/device_info_api.php?ip=10.79.120.227&method=getInfo", False
-   http.Open "POST", URL, False
-   http.setRequestHeader "Content-Type", "application/json"
-   http.send
-   Debug.Print http.responseText
-
-   JsonString = http.responseText
-   
-   colonReplace = Chr(34) + ":" + Chr(34)
-   commaReplace = Chr(34) + "," + Chr(34)
-   JsonString = Replace(JsonString, "},", vbCrLf)
-   JsonString = Replace(JsonString, commaReplace, "%")
-   JsonString = Replace(JsonString, colonReplace, "%")
-   
-
- '=============================================================================================
-    ' Now process the captured data - insert into a new workbook
- '=============================================================================================
-    Range("A12").Select
-    inc = 0
-    incCol = 0
-    incLine = 12
-    For loop1 = 2 To Len(JsonString) '-- loop to the end of the JSON file
-        If Mid(JsonString, loop1, 1) = "%" Then
-              Select Case inc
-              Case 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27
-                  ActiveCell.Offset(0, incCol).Range("A1").Value = tempString
-                  inc = inc + 1
-                  incCol = incCol + 1
-                  tempString = ""
-               Case Else
-                  tempString = ""
-                  inc = inc + 1
-               End Select
-            ElseIf Mid(JsonString, loop1, 1) = vbCr Then
-               ActiveCell.Offset(0, incCol).Range("A1").Value = tempString
-               newCell = "A" + Trim(Str(incLine))
-               Range(newCell).Select
-               tempString = ""
-               incLine = incLine + 1
-               inc = 0
-               incCol = 0
-            Else
-               tempString = tempString + Mid(JsonString, loop1, 1)
-            End If
-    Next loop1
+Sub CaptureAuditLogs()
+   Dim UseApiKey As String
+   Dim ApiKey As String
     
-    Application.ScreenUpdating = True
+    ' Create a new worksheet called AuditLogs
+    ' Then to improve on speed turn off
+    '    Screen updating
+    '    Event notification
+    '    Calculation of the worksheet
+    Sheets.Add.Name = "AuditLogs"
+    Worksheets("AuditLogs").Activate
+    Application.ScreenUpdating = False
     Application.EnableEvents = False
-    Application.Calculation = xlCalculationAutomatic
+    Application.Calculation = xlCalculationManual
+
+   ' First we are going to get the values we need from the user'
+   UseApiKey = inputbox(prompt:="Are you using an API Key (Yes or No): ", default:="Yes")
+
+   '----- Use a Password to access Netreo API setup True or False -----
+   If LCase(UseApiKey) = "yes" Then
+      UseApiKey = True
+      '------ Enter your API key here ----------------
+      ApiKey = inputbox(prompt:="What is the API Key: ")
+      Else
+         If LCase(UseApiKey) = "no" Then
+            UseApiKey = False
+            Else
+               Print "Sorry you have to enter Yes or No, we will stop now."
+               Exit Sub
+            End If
+       '---- yes  = use an API Key to access API
+       '---- no = do not use an API Key to access API
+       End If
+    Dim ServerURL As String
+    ServerURL = inputbox(prompt:="What is the Netreo Server Name or IP: ")
    
-   'MsgBox http.responseText
+    Dim TimeFrame As String
+    TimeFrame = inputbox(prompt:="What timeframe to use (lasthr, 24hr, or 7dy): ")
+   
+    Set http = CreateObject("MSXML2.XMLHTTP")
+  
+    URL = "https://" + ServerURL + "/fw/index.php?r=restful/audit-log/log-list"
+    If UseApiKey = True Then
+        HTMLBody = "{""password"":""" + ApiKey + """,""timeperiod"":""" + TimeFrame + """}"
+        Else
+            HTMLBody = "{""timeperiod"":""" + TimeFrame + """}"
+        End If
+   
+   '------------
+   ' use the above entered data to start an API call (POST)
+   '    "/fw/index.php?r=restful/site/list"
+   http.Open "POST", URL, False
+   ' Set up the header
+   http.setRequestHeader "Content-type", "application/json"
+   ' now send it all and wait for the response
+   http.send HTMLBody
+   jString = http.responseText
+   ' uncomment this to see the data in Excel VB Immediate window
+   'Debug.Print jString
+      
+   ' Fix carraige return and line feed characters'
+   jString = Replace(jString, vbLf, "")
+   jString = Replace(jString, vbCrLf, "")
+   
+   'Debug.Print jString
+   TimeStart = 2
+    
+    ' pull out cell data from the json data'
+    deviceStart = InStr(TimeStart, jString, "device", vbTextCompare) - 2
+    userStart = InStr(deviceStart, jString, "user", vbTextCompare) - 2
+    locationStart = InStr(userStart, jString, "location", vbTextCompare) - 2
+    messageStart = InStr(locationStart, jString, "message", vbTextCompare) - 2
+    
+    'Setup to save as new workbook called AuditLog
+    'AuditWrkbk = "AuditLog"
+    'Workbooks.Add.SaveAs Filename:=AuditWrkbk, FileFormat:=51
+    'Workbooks(AuditWrkbk).Activate
+ 
+    ' Add headers to new workbook
+    Range("A2").Value = "Audit Log"
+    
+    Range("A4").Value = "Date/Time"
+    Range("B4").Value = "Device"
+    Range("C4").Value = "User"
+    Range("D4").Value = "Location"
+    Range("E4").Value = "Message"
+    
+    DataHoldStart = 5
+    Range("A5").Select
+    inc = 6
+    
+    ' now loop through the JSON file and populate the spreadsheet
+    For loop1 = 1 To Len(jString)
+         valCel = Trim(CStr(inc))
+         tempval = "time" + Chr(34) + ":" + Chr(34)
+         DataHold = StripJSON(tempval, TimeStart, 7)
+         DataCell = "A" + valCel
+         Range(DataCell).Value = DataHold
+         TimeStart = endVal - 2
+
+         tempval = "device" + Chr(34) + ":" + Chr(34)
+         DataHold = StripJSON(tempval, deviceStart, 9)
+         DataCell = "B" + valCel
+         Range(DataCell).Value = DataHold
+         deviceStart = endVal - 2
+     
+         tempval = "user" + Chr(34) + ":" + Chr(34)
+         DataHold = StripJSON(tempval, userStart, 7)
+         DataCell = "C" + valCel
+         Range(DataCell).Value = DataHold
+         userStart = endVal - 2
+     
+         tempval = "location" + Chr(34) + ":" + Chr(34)
+         DataHold = StripJSON(tempval, locationStart, 11)
+         DataCell = "D" + valCel
+         Range(DataCell).Value = DataHold
+         locationStart = endVal - 2
+         
+         tempval = "message" + Chr(34) + ":" + Chr(34)
+         DataHold = StripJSONend(tempval, messageStart, 10)
+         DataCell = "E" + valCel
+         Range(DataCell).Value = DataHold
+         messageStart = endVal - 2
+         ' Look for ] in the next character or the 2nd character if found do the below
+         ' This will end the macro after making adjustments to how things look
+         If Mid(jString, endVal + 1, 1) = "]" Or Mid(jString, endVal + 2, 1) = "]" Then
+            'Turn back on the items we turned off to increase speed
+            Application.ScreenUpdating = True
+            Application.EnableEvents = True
+            Application.Calculation = xlCalculationAutomatic
+            'Select rows 2 through 4
+            Rows("2:4").Select
+            Range("A4").Activate
+            ' Bold the rows
+            Selection.Font.Bold = True
+            ' Select cell A2 (Audit Log) text and change the font to 14 point
+            Range("A2").Select
+            With Selection.Font
+                .Name = "Calibri"
+                .Size = 14
+                .Strikethrough = False
+                .Superscript = False
+                .Subscript = False
+                .OutlineFont = False
+                .Shadow = False
+                .Underline = xlUnderlineStyleNone
+                .ThemeColor = xlThemeColorLight1
+               .TintAndShade = 0
+               .ThemeFont = xlThemeFontMinor
+            End With
+            ' Fix the column width A through E
+            Columns("A:E").Select
+            Columns("A:E").EntireColumn.AutoFit
+            'End the macro
+            End
+         End If
+         inc = inc + 1
+    Next loop1
+
    'MsgBox http.Status
+
+
 End Sub
+
+
+
+
+Public Sub SetVars()   '----- Setup Variables for use in many of the modules below
+   TempSheetName = ActiveSheet.Name ' Get current worksheet name
+   Worksheets("Documentation").Activate  ' Now select the documentation Tab and collect values
+  
+    Worksheets(TempSheetName).Activate
+     
+       
+End Sub
+
+
+Function StripJSON(srchTxt, StartHere, addNum) As String
+         ' strip out just the title section of each incident ----------------------------------
+         StartVal = InStr(StartHere, jString, srchTxt, vbTextCompare) + addNum
+         endVal = InStr(StartVal + 2, jString, ",", vbTextCompare) - 1
+         StripJSON = Mid(jString, StartVal, endVal - StartVal)
+End Function
+
+Function StripJSONend(srchTxt, StartHere, addNum) As String
+         ' strip out just the header section of each incident ----------------------------------
+         StartVal = InStr(StartHere, jString, srchTxt, vbTextCompare) + addNum
+         endVal = InStr(StartVal + 2, jString, "}", vbTextCompare) - 1
+         StripJSONend = Mid(jString, StartVal, endVal - StartVal)
+         
+End Function
