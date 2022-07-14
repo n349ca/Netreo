@@ -9,5 +9,5 @@ Under each of the directories you will find a README that walks you through setu
     - EXE files are Windows only executables that were compiled from the Python scripts
     - Insomnia is like PostMan it is a REST API tool 
         The insomnia file includes 6 preconfigured API calls
-    - Postman 
+    - Postman - REST API tool with various API calls (not as complete as Insomnia)
     - Python scripts
