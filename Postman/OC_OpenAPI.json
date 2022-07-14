@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "f14ebf3a-94ff-49e2-b59a-20c30bb45b37",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "ADD Device",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{URL}/api/new_device_api.php?snmp_pub={{snmp_pub}}&ip={{ip}}&category={{category}}&strategic_groups={{strategic_groups}}&site={{site}}&site_address={{site_address}}&site_city={{site_city}}&site_state={{site_state}}&site_country={{site_country}}&site_zip={{site_zip}}&name[]=Contact&value[]={{contact}}&name[]=ContactInfo&value[]={{contact_info}}&poll=1&enabled=1 ",
+					"protocol": "https",
+					"host": [
+						"{URL}"
+					],
+					"path": [
+						"api",
+						"new_device_api.php"
+					],
+					"query": [
+						{
+							"key": "snmp_pub",
+							"value": "{{snmp_pub}}"
+						},
+						{
+							"key": "ip",
+							"value": "{{ip}}"
+						},
+						{
+							"key": "category",
+							"value": "{{category}}"
+						},
+						{
+							"key": "strategic_groups",
+							"value": "{{strategic_groups}}"
+						},
+						{
+							"key": "site",
+							"value": "{{site}}"
+						},
+						{
+							"key": "site_address",
+							"value": "{{site_address}}"
+						},
+						{
+							"key": "site_city",
+							"value": "{{site_city}}"
+						},
+						{
+							"key": "site_state",
+							"value": "{{site_state}}"
+						},
+						{
+							"key": "site_country",
+							"value": "{{site_country}}"
+						},
+						{
+							"key": "site_zip",
+							"value": "{{site_zip}}"
+						},
+						{
+							"key": "name[]",
+							"value": "Contact"
+						},
+						{
+							"key": "value[]",
+							"value": "{{contact}}"
+						},
+						{
+							"key": "name[]",
+							"value": "ContactInfo"
+						},
+						{
+							"key": "value[]",
+							"value": "{{contact_info}}"
+						},
+						{
+							"key": "poll",
+							"value": "1"
+						},
+						{
+							"key": "enabled",
+							"value": "1 "
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
