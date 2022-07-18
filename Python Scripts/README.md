@@ -18,15 +18,16 @@ For Windows 10 and 11
 3. Inside the Command Window go to where you saved the EXE files and run them from there
 
 ## Netreo API Tools 
-These are Python scripts and fully executable programs on windows machines that utilize the Netreo API.
+These are Python scripts written for version 3.x Python. 
+Windows executable programs can also be found in this repository. 
 You will find a variety of different tools available. With the list growing regularly.
 
 ### POST_Active_Incidents.py 
-Python program will access the Netreo API and pull all the active incidents
-While pulling the incidents both Category and Site (in incident api) are numbers
-The script will accesses Category and Site API to pull all of those for reference
-Next the script looks up the references for Category and Site
-Finally writing to CSV the output 
+Python program will access the Netreo API and pull all the active incidents. 
+While pulling the incidents both Category and Site (in the incident api) are numbers. 
+The script will then access both Category and Site APIs to pull all of those for reference. 
+Next the script looks up the references for Category and Site. 
+Finally writing everything out to a CSV output file.
 All saved into c:\temp (a windows based directory) with the time of days in the file name
 
 ### Excel_POST_Active_Incidents.py
@@ -38,8 +39,8 @@ Column H is a calculation for how long the incident has been active
 ### Post_Audit-Log.py
 Exports the Netreo audit log to CSV format into C:\Temp directory (windows)
 Script allows for lasthr, 24hr or, 7dy timeframes
-Takes into account SaaS or appliance systems and on appliances
-    takes into account API Key or no Key
+Takes into account SaaS or appliance systems and on appliances it 
+    takes into account the API Key or no Key
 
 ### site-list.py
 Exports Netreo list of Sites to a CSV format into C:\temp directory (windows)
