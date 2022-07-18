@@ -1,0 +1,4 @@
+curl.exe -X 'POST' `
+  'https://YOUR_SERVER_HERE/api/device_info_api.php?pwd=YOUR_API_KEY_HERE&ip=YOUR_DEVICE_NAME_HERE&method=getinfo' `
+  -H 'accept: application/json' `
+  -d ''
