@@ -64,6 +64,7 @@ today = str(date.today())
 # This will be the CSV header row (first line of CSV)
 header = ["Time", "Device", "User", "Location", "Message"]
 # open the file in the write mode
+#-------------Change Directory from C:\\temp to your specific directory (linuix or windows) -----------
 opn = "C:\\temp\\Audit-Log" + today + ".csv"
 #print(opn4)
 g = open(opn, 'w', newline='')
