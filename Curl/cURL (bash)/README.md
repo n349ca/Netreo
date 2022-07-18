@@ -1,5 +1,5 @@
 # Netreo API cURL Commands for bash shell
-Collection of CURL commands for use with the Netreo API
+Collection of cURL commands for use with the Netreo API
 In the supplied examples we use HTTPS
 
 To use these commands you will have to replace:
