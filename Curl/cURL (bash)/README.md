@@ -9,11 +9,13 @@ To use these commands you will have to replace:
 
 ### Device Info API 
 Retrieves the Netreo metadata for a specific monitored device. Example output
+
     {
       "result": "completed",
       "name": "Boston-R1",
       "device_index": "40178",
-      "description": "Cisco IOS Software, C880 Software (C880DATA-UNIVERSALK9-M), Version 15.4(3)M5, RELEASE SOFTWARE (fc1) Technical Support: http://www.cisco.com/techsupport Copyright (c) 1986-2016 by Cisco Systems, Inc. Compiled Tue 09-Feb-16 06:35 by prod_rel_team",
+      "description": "Cisco IOS Software, C880 Software (C880DATA-UNIVERSALK9-M), Version 15.4(3)M5, RELEASE SOFTWARE (fc1) Technical Support:
+               http://www.cisco.com/techsupport Copyright (c) 1986-2016 by Cisco Systems, Inc. Compiled Tue 09-Feb-16 06:35 by prod_rel_team",
       "category": "Site Routers",
       "site": "Boston",
       "related_strategic_groups": [
