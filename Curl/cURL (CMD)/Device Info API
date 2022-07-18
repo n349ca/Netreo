@@ -1,0 +1,5 @@
+
+curl -X "POST" ^
+  "https://virtserver.swaggerhub.com/Netreo/device_info/1.0.1/api/device_info_api.php?pwd=YOUR_API_KEY_HERE&ip=127.0.0.1&method=getinfo" ^
+  -H "accept: application/json" ^
+  -d ''
