@@ -1,6 +1,7 @@
 # Netreo EXE Windows Executables
-Collection of Python based Scripts for use with the Netreo API
-All EXE executables use HTTPS
+Collection of Python scripts converted to executables for use with the Netreo API.
+All EXE executables use HTTPS.
+You must first open a command prompt window and then run the EXE files.
 
 ### addDeviceImportCSV.exe
 You have to use the CSV files found here with this program
