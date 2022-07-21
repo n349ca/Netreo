@@ -1,0 +1,77 @@
+import json
+import requests
+import csv
+
+#    1. Required Fields
+#          IP address
+#          SNMP Pub (community string)
+#          Poll  (either 0=do not poll or 1=enable device polling)
+#          Enable (either 0=do not enable or 1=enable device)
+#    2. Use the correct template for either On Premisis or Saas based
+#    3. Fill in all appropriate data
+#    4. Delete the header (Row 1) & sample data if you left it there
+#    5. Save as a CSV file
+
+#-----------  Enter the location of the CSV file
+#-----------  Currently set to testFile
+csvFileLocation = 'c:\\Temp\\testFile2.csv'
+
+# ask for input 
+# get the name of the server or the ip address so we can build 
+input_url = input("Please enter Netreo server name or IP: ")
+# if there is not a key then use customized url 
+input_saas = input("Are you using Netreo SaaS (y/n): ")
+
+if input_saas.lower() == "n":
+	input_key = input("Enter your API key (if not used type 'none'): ")
+	if input_key.lower() == "none":
+	    baseURL = "https://" + input_url + '/api/new_device_api.php?'
+	else:
+	    baseURL = "https://" + input_url + '/api/new_device_api.php?pwd=' + input_key + '&'
+else:
+    # If using SaaS system then change pwd to pin and setup the URL
+    # https://xyz.com/api/new_device_api.php?pwd=vvvvv&snmp_pub=zzzz&ip=1.1.1.2&poll=1&enabled=1
+	input_key = input("Enter the SaaS Pin: ")
+	baseURL = "https://" + input_url + "/api/new_device_api.php?pin=" + input_key + '&'
+
+
+#------------------------------------------------------------------
+# Loop through the CSV file and create URL data
+csvfile = list(csv.reader(open(csvFileLocation)))
+for row in csvfile:
+    #print(row)
+    # Below Contact name and value = added attributes for that device, seen in Netreo and searchable in Netreo
+    jsonData = 'device_name=' + row[0] + '&ip=' + row[1] + '&snmp_pub=' + row[2] + '&type=' + row[3] \
+    + '&subtype=' + row[4] + '&category=' + row[5] + '&strategic_groups=' + row[6] + '&site=' + row[7] \
+    + '&site_address=' + row[8] + '&site_city=' + row[9] + '&site_state=' + row[10] + '&site_country=' + row[11] \
+    + '&site_zip=' + row[12]  + '&site_latitude=' + row[13] + '&site_longitude=' + row[14] \
+    + '&name[]=' + row[15] + '&Value[]=' + row[16] + '&name[]=' + row[17] + '&Value[]=' + row[18] \
+    + '&contact_name[]=' + row[19] + '&contact_address[]=' + row[29] + '&contact_city[]=' + row[21] \
+    + '&contact_state[]=' + row[22]  + '&contact_zip[]=' + row[23] + '&contact_number=' + row[24] \
+    + '&contact_email[]=' + row[25] + '&advancedInterfaceFilter=' + row[26] \
+    + '&rediscover=' + row[27] + '&profile=' + row[28] \
+    + '&poll=' + row[29] + '&enabled=' + row[30] 
+
+    #print(jsonData) 
+    #print(baseURL)
+    #print()
+    theURL = baseURL + jsonData
+    #print(theURL)
+    # -----   
+    # Perform the URL post with the CSV file data
+    data = requests.post(theURL)
+    try:
+    	print(data.json())
+    except Exception:
+    	pass
+
+    if data.status_code != 200:
+	    print('Adding devices API did not respond correctly, please confirm:')
+	    print('    1. that you have the API turned on')
+	    print('    2. you need or do not need an API key')
+	    print('    3. when you entered the API key it was correct')
+	    print('    4. If using SaaS confirm your Pin was correct')
+	    exit()
+
+
+print('\n\n Netreo data import complete.')
