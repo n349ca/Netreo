@@ -51,7 +51,7 @@ Exports Netreo's list of Categories to a CSV format into C:\temp directory (wind
 Script will use SaaS or appliance based systems with or without the API Key.
 
 ### addDeviceImportCSV.py
-You have to use the addDevicesImport.CSV file with this program
+You have to use the CSV files with this program
 Rules for Data Entry
 
       1. Required Fields
@@ -62,12 +62,12 @@ Rules for Data Entry
         2. Use the correct template (CSV File) for either On Prem or Saas based
               addDevicesImport(On Prem).csv
               addDevicesImport(SaaS).csv
-        3. Fill in all appropriate data
+        3. Fill in all appropriate data (make sure you have the required fields populated)
         4. Delete the header (Row 1) & sample data if you left it there
         5. Save as a CSV file
-        6. CSV file location expected to be c:\Temp\testFile.csv
+        6. CSV file location expected to be c:\Temp\testFile.csv (change as appropriate)
 
-    Top line (row 1) is the header row
+    Top line of CSV files (row 1) is the header row
     Row 2 is sample data - delete this and add your own
     Run the Python program called --- addDeviceImportCSV.py
 
