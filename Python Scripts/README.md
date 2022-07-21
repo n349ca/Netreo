@@ -60,7 +60,7 @@ Rules for Data Entry
                 Poll  (either 0=do not poll or 1=enable device polling)
                 Enable (either 0=do not enable or 1=enable device)
         2. Use the correct template (CSV File) for either On Prem or Saas based
-              addDevicesImport(On Prem).csv
+              addDevicesImport(OnPrem).csv
               addDevicesImport(SaaS).csv
         3. Fill in all appropriate data (make sure you have the required fields populated)
         4. Delete the header (Row 1) & sample data if you left it there
