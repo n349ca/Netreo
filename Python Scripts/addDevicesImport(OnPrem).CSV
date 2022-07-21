@@ -1,0 +1,2 @@
+device_name	ip	snmp_pub	type	subtype	category	strategic_groups	site	site_address	site_city	site_state	site_country	site_zip	site_latitude	site_longitude	name[]	value[]	name[]	value[]	contact_name[]	contact_address[]	contact_city[]	contact_state[]	contact_zip[]	contact_number[]	contact_email[]	advancedInterfaceFilter	rediscover	profile	poll	enabled
+Dev-1	1.1.1.2	zzzz			DeleteThis	one:two:three	site_1	site address	site city	site state	site country	zip	23.40485	-54.9893	Vendor	Verizon	Circuit	aze93l59478305k	John Smith	1 main st	cloud	IN	83884	888-555-1212	John@xyz.com				1	1
