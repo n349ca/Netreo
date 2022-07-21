@@ -4,7 +4,8 @@ All EXE executables use HTTPS.
 You must first open a command prompt window and then run the EXE files.
 
 ### addDeviceImportCSV.exe
-You have to use the CSV files found here with this program
+You have to use the CSV files found on GitHub with this program.
+
 Rules for Data Entry
 
       1. Required Fields
