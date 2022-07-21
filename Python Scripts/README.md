@@ -59,7 +59,9 @@ Rules for Data Entry
                 SNMP Pub (community string)
                 Poll  (either 0=do not poll or 1=enable device polling)
                 Enable (either 0=do not enable or 1=enable device)
-        2. Use the correct template for either On Premisis or Saas based
+        2. Use the correct template (CSV File) for either On Prem or Saas based
+              addDevicesImport(On Prem).csv
+              addDevicesImport(SaaS).csv
         3. Fill in all appropriate data
         4. Delete the header (Row 1) & sample data if you left it there
         5. Save as a CSV file
