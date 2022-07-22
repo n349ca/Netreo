@@ -14,7 +14,7 @@ import csv
 
 #-----------  Enter the location of the CSV file
 #-----------  Currently set to testFile
-csvFileLocation = 'c:\\Temp\\addDevicesImport(OnPrem).csv'
+csvFileLocation = 'c:\\Temp\\addDevicesImport.csv'
 
 # ask for input 
 # get the name of the server or the ip address so we can build 
