@@ -21,3 +21,6 @@ list of all sites found in Netreo
 
 ### Strategic Group List (POST Cmd)
 List all Strategic Groups also known as Business Workflows
+
+### Get Audit Log 
+Based on timeframe retrieve the audit log from Netreo
