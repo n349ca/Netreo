@@ -1,0 +1,4 @@
+curl -X POST
+  "http://YOUR_SERVER_HERE/fw/index.php?r=restful/audit-log/log-list"
+  -F timeperiod=lasthr
+  -F password=YOUR_API_KEY_HERE
