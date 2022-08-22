@@ -1,6 +1,6 @@
 # Netreo API Tools
 There are a variety of tools presented here.
-All scripts and executables use HTTPS. 
+All scripts and executables use HTTPS and an API key. 
 Under each of the directories you will find a README that walks you through setup for that specific section.
 
     Tool directories for API Access include:
