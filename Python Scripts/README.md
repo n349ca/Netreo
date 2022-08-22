@@ -2,7 +2,7 @@
 Collection of Python Scripts for use with the Netreo API
 All scripts and executables use HTTPS
 
-    Must install json, requests, and csv in python
+    Must install **json**, **requests**, and **csv** in python
       1. Open a command line window 
       2. change to your python directory
       3. type - pip install csv
