@@ -2,7 +2,8 @@
 Collection of Python Scripts for use with the Netreo API
 All scripts and executables use HTTPS
 
-    Must install **json**, **requests**, and **csv** in python
+Must install **json**, **requests**, and **csv** in python
+
       1. Open a command line window 
       2. change to your python directory
       3. type - pip install csv
@@ -10,7 +11,7 @@ All scripts and executables use HTTPS
       5. type - pip install requests
     
 There are different python scripts to support Netreo API access.
-These were developed on Python 3.x
+Executables were developed on Python 3.x
 Executables must be run from from a command line window
 For Windows 10 and 11
 1. Click on your windows start menu (or press your windows button on the keyboard)
@@ -56,7 +57,6 @@ Rules for Data Entry
 
       1. Required Fields
                 IP address
-                SNMP Pub (community string)
                 Poll  (either 0=do not poll or 1=enable device polling)
                 Enable (either 0=do not enable or 1=enable device)
         2. Use the correct template (CSV File) for either On Prem or Saas based
@@ -67,7 +67,7 @@ Rules for Data Entry
         5. Save as a CSV file
         6. CSV file location expected to be c:\Temp\testFile.csv (change as appropriate)
 
-    Top line of CSV files (row 1) is the header row
+    Top line of CSV files (row 1) is the header row useful during population of data (and is deleted before use)
     Row 2 is sample data - delete this and add your own
     Run the Python program called --- addDeviceImportCSV.py
 
