@@ -32,10 +32,11 @@ Finally writing everything out to a CSV output file.
 All saved into c:\temp (a windows based directory) with the time of days in the file name
 
 ### Excel_POST_Active_Incidents.py
-This script is the same as GET_Active_Incidents.py with the exception of adding 2 more columns of data
-In Excel these would be Column G (7) & H (8)
-Column G adds todays date and time that the program was run
-Column H is a calculation for how long the incident has been active
+This script is the same as POST_Active_Incidents.py with the exception of adding 2 more columns of data
+When importing the CSV to Excel these would be Column G (7) & H (8)
+
+    Column G adds todays date and time that the program was run
+    Column H is a calculation for how long the incident has been active
 
 ### Post_Audit-Log.py
 Exports the Netreo audit log to CSV format into C:\Temp directory (windows)
