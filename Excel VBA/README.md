@@ -26,3 +26,6 @@ Select ThisWorkbook.CaptureAuditLogs or you may only see CaptureAuditLogs
 You will be asked to enter if you use an API key, what the key is, server name or IP, and the time period.
 Once completed the script will fill in your worksheet with the Audit log data
 
+## DeleteDevice
+Untested VB script to delete a managed device in Netreo
+It should work fine just not verified, if you find it works then please forward that information to me.
