@@ -72,3 +72,6 @@ Rules for Data Entry
     Row 2 is sample data - delete this and add your own
     Run the Python program called --- addDeviceImportCSV.py
 
+### deleteDevice.py
+Will ask a series of questions and then delete the device out of Netreo
+
