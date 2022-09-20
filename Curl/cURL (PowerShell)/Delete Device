@@ -1,0 +1,4 @@
+curl.exe -X 'POST' `
+  'https://YOUR_SERVER_HERE/api/device_delete_api.php?pwd=YOUR_API_KEY_HERE&name=YOUR_DEVICE_NAME_TO_DELETE_HERE' `
+  -H 'accept: application/json' `
+  -d ''
