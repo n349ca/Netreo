@@ -1,0 +1,83 @@
+Public jString, srchTxt As String
+Public StartHere, StartVal, endVal As Long
+
+'######################################################
+'------
+'------  NOTE: this VB script has not been tested 
+'------
+'######################################################
+
+Sub DeleteManagedDevice()
+   Dim UseApiKey As String
+   Dim ApiKey As String
+    
+    ' Then to improve on speed we turn off:
+    '    Screen updating
+    '    Event notification
+    '    Calculation of the worksheet
+
+    Application.ScreenUpdating = False
+    Application.EnableEvents = False
+    Application.Calculation = xlCalculationManual
+
+    ' First we are going to get the values we need from the user'
+    ' Ask for the Netreo server name or IP (name must be fully qualified)
+    Dim ServerURL As String
+    ServerURL = InputBox(prompt:="What is the Netreo Server Name or IP: ")
+
+   ' Are we using SaaS or on premisis
+    UseSaaS = InputBox(prompt:="Are you using SaaS installation or On Prem (SaaS or Prem): ", Default:="Prem")
+    If LCase(UseSaaS) = "saas" Then
+            UseSaasKey = True
+            ElseIf LCase(UseSaaS) = "prem" Then
+               UseSaasKey = False
+               Else
+                   MsgBox "Sorry you have to enter SaaS or Prem, we will stop now."
+                   Exit Sub
+            End If
+
+   '----- Use an API Key or SaaS Pin to access Netreo API -----
+   UseKey = InputBox(prompt:="Are you using an API Key (yes or no): ")
+   If LCase(UseKey) = "yes" And UseSaasKey = False Then
+      '------ Enter your API key here ----------------
+      ApiKey = InputBox(prompt:="What is the API Key: ")
+      UseApiKey = True
+      Else
+         ApiKey = InputBox(prompt:="What is the SaaS Pin: ")
+         UseApiKey = False
+         End If
+       '---- yes  = use an API Key to access API
+       '---- no = do not use an API Key to access API
+   DeviceToDelete = InputBox(prompt:="What is the device or IP address of the device to delete: ")
+   If DeviceToDelete = "" Then
+       MsgBox "Sorry you did not enter a device."
+       Exit Sub
+       End If
+  
+  '===========================================================================
+  '===========================================================================
+  
+    Set http = CreateObject("MSXML2.XMLHTTP")
+  
+    Url = "https://" + ServerURL + "/api/device_delete_api.php"
+    If UseApiKey = True Then
+        HTMLBody = "{""pwd"":""" + ApiKey + """, ""name"":""" + DeviceToDelete + """}"
+        Else
+            HTMLBody = "{""name"":""" + DeviceToDelete + """}"
+            End If
+   
+   '------------
+   ' use the above entered data to start an API call (POST)
+   '    "/api/device_delete_api.php"
+   http.Open "POST", Url, False
+   ' Set up the header
+   http.setRequestHeader "Content-type", "application/json"
+   ' now send it all and wait for the response
+   http.send HTMLBody
+   jString = http.responseText
+   ' uncomment Debug.Print below to see the data in Excel VB Immediate window
+   'Debug.Print jString
+      
+  End Sub
+  
+  
