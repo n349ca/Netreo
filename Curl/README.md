@@ -25,5 +25,5 @@ List all Strategic Groups also known as Business Workflows
 ### Get Audit Log 
 Based on timeframe retrieve the audit log from Netreo
 
-### Delete a device (POST Cmd)
+### Delete Device (POST Cmd)
 Delete a managed device in Netreo via the Netreo name or IP address
