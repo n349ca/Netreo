@@ -1,0 +1,4 @@
+curl -X 'POST' \
+  'https://virtserver.swaggerhub.com/Netreo/device_delete/1.0.1/api/device_delete_api.php?pwd=API_KEY&name=TestDevice' \
+  -H 'accept: application/json' \
+  -d ''
