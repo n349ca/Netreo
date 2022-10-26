@@ -2,7 +2,8 @@
 Collection of Python scripts converted to executables for use with the Netreo API.
 All EXE executables use HTTPS.
 You must first open a command prompt window and then run the EXE files.
-Confirm you have a diretory C:\Temp if not create it, all routines use this diretory.
+
+Confirm you have a diretory __C:\Temp__ if not create it, all routines use this diretory.
 
 ### addDeviceImportCSV.exe
 You have to use the CSV files found on GitHub with this program.
