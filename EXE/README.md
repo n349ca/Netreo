@@ -2,6 +2,7 @@
 Collection of Python scripts converted to executables for use with the Netreo API.
 All EXE executables use HTTPS.
 You must first open a command prompt window and then run the EXE files.
+Confirm you have a diretory C:\Temp if not create it, all routines use this diretory.
 
 ### addDeviceImportCSV.exe
 You have to use the CSV files found on GitHub with this program.
@@ -23,9 +24,9 @@ Rules for Data Entry
 
     Top line of CSV files (row 1) is the header row
     Row 2 is sample data - delete this and add your own
-    Run the Python program called --- addDeviceImportCSV.py
+    Run the executable (Python) program called --- addDeviceImportCSV.exe
 
-### POST_Active_Incidents.exe 
+### API-POST_active_incidents.exe
 Built from the python program will access the Netreo API and pull all the active incidents. 
 While pulling the incidents both Category and Site (in the incident api) are numbers. 
 The script will then access both Category and Site APIs to pull all of those for reference. 
@@ -34,7 +35,7 @@ Finally writing everything out to a CSV output file.
 All saved into c:\temp (a windows based directory) with the time of days in the file name
 
 ### Excel_POST_Active_Incidents.exe
-This executable is the same as GET_Active_Incidents.exe with the exception of adding 2 more columns of data
+This executable is the same as API-POST_active_incidents.exe with the exception of adding 2 more columns of data
 In Excel these would be Column G (7) & H (8)
 Column G adds todays date and time that the program was run
 Column H is a calculation for how long the incident has been active
