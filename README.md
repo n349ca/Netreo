@@ -1,4 +1,9 @@
 # Netreo API Tools
+
+__NOTE: This is not a Netreo supported site.__ 
+
+__It is a private individual that has built some helpful tools.__
+
 There are a variety of tools presented here.
 All scripts and executables use HTTPS and an API key. 
 Under each of the directories you will find a README that walks you through setup for that specific section.
