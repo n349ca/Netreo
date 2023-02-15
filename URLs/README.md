@@ -5,4 +5,5 @@ There are a collection of URLs that are not documented but are very useful when 
 ***NOTE:*** the URLs below are partial URLs meaning that they would be placed after your Netreo server name. For instance https://netreo.lap.com would be your server name and then you would add to this a URL from below. 
 
 Capture service Engines in Netreo - JSON formated
-    '''/fw/index.php?r=device-management/get-device-stats-by-group&group_type=service_engine
+
+```/fw/index.php?r=device-management/get-device-stats-by-group&group_type=service_engine
