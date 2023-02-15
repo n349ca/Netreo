@@ -6,4 +6,4 @@ There are a collection of URLs that are not documented but are very useful when 
 
 Capture service Engines in Netreo - JSON formated
 
-```/fw/index.php?r=device-management/get-device-stats-by-group&group_type=service_engine
+``` /fw/index.php?r=device-management/get-device-stats-by-group&group_type=service_engine
