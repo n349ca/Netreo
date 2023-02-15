@@ -44,4 +44,13 @@ Device Managment Page (by different groupings) - JSON formatted
      By Strategic Grouping
      - /fw/index.php?r=device-management/get-device-stats-by-group&group_type=strategic_group
      
-     
+Show Failed logons to Netreo - basically get the Audit Log with filters - there are many ways to do this as well as with the API. In case you need to just do a URL, here is the format. **NOTE:** there is a value (use_date) that you need to change to month, day, year in the format of:
+
+     month 2 digit (March would be = 03
+     day is 2 digits (so the 4th would = 04
+     year is 4 digits (2022 or your 4 digit year)
+     Put together use_date = 03/04/2022
+
+The URL presented here is for Failed Logons from use_date and 90 days forward. This means if you want the last 90 days from say 12/01/2023 you would have a use_date of 09/01/2023. this url does not go backwards 90 days it goes forward from the use_date. **REPLACE use_date with correct date format**
+
+     /admin/audit_log.php?device_name=&user=&edit_location=&message=login+failure&time_option=1&start_time=" + use_date + "+12:00+am&report_time=90dy&result_limit=1000&display_option=html&does_not_match=&submit_report=Get+Audit+Log
