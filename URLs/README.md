@@ -6,6 +6,7 @@ As you find new URL's please add them to this list to help others!!!
 
 ***NOTE:*** the URLs below are partial URLs meaning that they would be placed after your Netreo server name. For instance https://netreo.lap.com would be your server name and then you would add to this a URL from below. 
 
+
 Capture service Engines in Netreo - JSON formatted
 
      Service Engine List
@@ -32,6 +33,7 @@ Current version and possible upgrade version of Netreo
      - /ajax/omnicenter_software_update_ajax.php?check=1
 
 Device Managment Page (by different groupings) - JSON formatted
+     
      By Category
      - /fw/index.php?r=device-management/get-device-stats-by-group&group_type=category
      
