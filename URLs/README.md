@@ -22,11 +22,6 @@ Capture Strategic Group Page - JSON formatted
      Strategic Group List
      - /fw/index.php?r=strategic-group/get-strategic-groups
 
-List of Categories
-
-     Category Group page
-     - /fw/index.php?r=category/sindex
-
 Current version and possible upgrade version of Netreo
 
      Version of Netreo
