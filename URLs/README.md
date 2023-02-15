@@ -12,18 +12,22 @@ Capture service Engines in Netreo - JSON formatted
      - /fw/index.php?r=device-management/get-device-stats-by-group&group_type=service_engine
 
 Capture all devices in Netreo - JSON formatted (not tested on large environments)
+
      All Device List
      - /fw/index.php?r=device-management/get-device-stats-for-group&group_type=oc&group_id=null
      
 Capture Strategic Group Page - JSON formatted
+
      Strategic Group List
      - /fw/index.php?r=strategic-group/get-strategic-groups
 
 List of Categories
+
      Category Group page
      - /fw/index.php?r=category/sindex
 
 Current version and possible upgrade version of Netreo
+
      Version of Netreo
      - /ajax/omnicenter_software_update_ajax.php?check=1
 
