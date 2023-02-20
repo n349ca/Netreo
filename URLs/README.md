@@ -21,6 +21,9 @@ Capture Strategic Group Page - JSON formatted
 
      Strategic Group List
      - /fw/index.php?r=strategic-group/get-strategic-groups
+     
+     Aggregate Strategic Group List
+     - /fw/index.php?r=aggregate-strategic-group/admin-list
 
 Current version and possible upgrade version of Netreo
 
