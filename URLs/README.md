@@ -47,7 +47,7 @@ Device Managment Page (by different groupings) - JSON formatted
      By Strategic Grouping
      - /fw/index.php?r=device-management/get-device-stats-by-group&group_type=strategic_group
 
-Disabled Devices in Netreo
+Disabled Devices in Netreo - JSON formatted
 
      Managed Disabled Devices
      - /fw/index.php?r=device-management/disabled-devices&data_only=1"
