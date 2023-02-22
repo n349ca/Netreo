@@ -46,7 +46,15 @@ Device Managment Page (by different groupings) - JSON formatted
      
      By Strategic Grouping
      - /fw/index.php?r=device-management/get-device-stats-by-group&group_type=strategic_group
+
+Disabled Devices in Netreo
+
+     Managed Disabled Devices
+     - /fw/index.php?r=device-management/disabled-devices&data_only=1"
      
+     Unmanaged Disabled Devices (were not managed yet)
+     - https://demo.netreo.com/fw/index.php?r=device-management/disabled-devices&data_only=0&unvalidated=1
+
 Show Failed logons to Netreo - basically get the Audit Log with filters - there are many ways to do this as well as with the API. In case you need to just do a URL, here is the format. **NOTE:** there is a value (use_date) that you need to change to month, day, year in the format of:
 
      month 2 digit (March would be = 03
