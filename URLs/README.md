@@ -54,6 +54,11 @@ Disabled Devices in Netreo - JSON formatted
      
      Unmanaged Disabled Devices (were not managed yet)
      - https://demo.netreo.com/fw/index.php?r=device-management/disabled-devices&data_only=0&unvalidated=1
+     
+Unlocked Thresholds report - JSON formated
+
+     Unlocked thresholds
+     - /fw/index.php?r=report/unlock-thresholds&data_only=1
 
 Show Failed logons to Netreo - basically get the Audit Log with filters - there are many ways to do this as well as with the API. In case you need to just do a URL, here is the format. **NOTE:** there is a value (use_date) that you need to change to month, day, year in the format of:
 
