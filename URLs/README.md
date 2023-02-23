@@ -68,11 +68,12 @@ Service Engines - JSON formatted
      Service Engine Groups
      - /fw/index.php?r=oc-remote-resource/get-service-engine-groups
      
-Configuration
-     Configuration Compliance Exceptions - JSON formatted
+Configuration URLs - JSON formatted 
+
+     Configuration Compliance Exceptions
      - /fw/index.php?r=cfg-mgr/get-config-templates&time_option=1&exception_option=1&report_time=90d
      
-     Configuration Authentication Failure (can't logon to get the configuration - JSON formatted
+     Configuration Authentication Failure (can't logon to get the configuration)
      -/fw/index.php?r=cfg-mgr/get-auth-fails&device_id=
 
 Show Failed logons to Netreo - basically get the Audit Log with filters - there are many ways to do this as well as with the API. In case you need to just do a URL, here is the format. **NOTE:** there is a value (use_date) that you need to change to month, day, year in the format of:
