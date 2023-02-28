@@ -68,6 +68,13 @@ Service Engines - JSON formatted
      Service Engine Groups
      - /fw/index.php?r=oc-remote-resource/get-service-engine-groups
      
+     Don't have a way to test these but think they should work
+     NetFlow / sFlow data
+     - /fw/index.php?r=oc-remote-resource/get-flows
+     
+     Log data for the last 10
+     - /fw/index.php?r=log/log-last-ten
+     
 Configuration URLs - JSON formatted 
 
      Configuration Compliance Exceptions
@@ -76,14 +83,9 @@ Configuration URLs - JSON formatted
      Configuration Authentication Failure (can't logon to get the configuration)
      -/fw/index.php?r=cfg-mgr/get-auth-fails&device_id=
 
-Show Failed logons to Netreo - basically get the Audit Log with filters - there are many ways to do this as well as with the API. In case you need to just do a URL, here is the format. **NOTE:** there is a value (use_date) that you need to change to month, day, year in the format of:
+Show Failed logons to Netreo - basically get the Audit Log with filters - there are many ways to do this as well as with the API. In case you need to just do a URL, here is the format. 
 
-     month 2 digit (March would be = 03
-     day is 2 digits (so the 4th would = 04
-     year is 4 digits (2022 or your 4 digit year)
-     Put together use_date = 03/04/2022
-
-The URL presented here is for Failed Logons from use_date and 90 days forward. This means if you want the last 90 days from say 12/01/2023 you would have a use_date of 09/01/2023. this url does not go backwards 90 days it goes forward from the use_date. **REPLACE use_date with correct date format**
+The URL presented here is for Failed Logons from use_date and 90 days forward. 
 
      Audit Log - Failed Logons
-     - /admin/audit_log.php?device_name=&user=&edit_location=&message=login+failure&time_option=1&start_time=" + use_date + "+12:00+am&report_time=90dy&result_limit=1000&display_option=html&does_not_match=&submit_report=Get+Audit+Log
+     - /admin/audit_log.php?device_name=&user=&edit_location=&message=login+failure&time_option=1&report_time=90dy&result_limit=1000&display_option=html&does_not_match=&submit_report=Get+Audit+Log
