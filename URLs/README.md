@@ -85,7 +85,7 @@ Configuration URLs - JSON formatted
 
 Show Failed logons to Netreo - basically get the Audit Log with filters - there are many ways to do this as well as with the API. In case you need to just do a URL, here is the format. 
 
-The URL presented here is for Failed Logons from use_date and 90 days forward. 
+The URL presented here is for Failed Logons for the last 90 days. 
 
      Audit Log - Failed Logons
      - /admin/audit_log.php?device_name=&user=&edit_location=&message=login+failure&time_option=1&report_time=90dy&result_limit=1000&display_option=html&does_not_match=&submit_report=Get+Audit+Log
