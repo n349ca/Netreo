@@ -78,6 +78,10 @@ Service Engines - JSON formatted
      
      Log data for the last 10
      - /fw/index.php?r=log/log-last-ten
+
+Remote Agent List with basic information - JSON formatted
+     Remote Agents 
+     - /fw/index.php?r=oc-remote-resource/get-remote-agents
      
 Configuration URLs - JSON formatted 
 
