@@ -80,6 +80,7 @@ Service Engines - JSON formatted
      - /fw/index.php?r=log/log-last-ten
 
 Remote Agent List with basic information - JSON formatted
+
      Remote Agents 
      - /fw/index.php?r=oc-remote-resource/get-remote-agents
      
