@@ -1,6 +1,6 @@
 # Hidden URLs found in Netreo
 
-There are a collection of URLs that are not documented but are very useful when you need specific data that the API does not provide. Many of these links provide JSON formated output, which is excelent for other tools to access Netreo. For instance if you wanted to have ServiceNow or SPLUNK access data in Netreo. The list of URL's below are only what have been found through trial and error and researching the HTML of the page.
+There are a collection of URLs that are not documented but are very useful when you need specific data that the API does not provide. Many of these links provide JSON formated output, which is excelent for other tools to access Netreo. For instance if you wanted to have ServiceNow or SPLUNK access data in Netreo. The list of URL's below are only what have been found through trial and error while researching the HTML of the page.
 
 As you find new URL's please add them to this list to help others!!!
 
