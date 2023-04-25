@@ -84,6 +84,18 @@ Remote Agent List with basic information - JSON formatted
      Remote Agents 
      - /fw/index.php?r=oc-remote-resource/get-remote-agents
      
+NetFlow / sFlow information - JSON formatted
+
+     Top Applications List 
+     - /fw/index.php?r=otc/top-applications
+     
+     Top conversations (overview) 
+    - /fw/index.php?r=otc/top-conv-overview-cache
+    
+    Top Exporters 
+    - /fw/index.php?r=otc/top-exporters
+     
+
 Configuration URLs - JSON formatted 
 
      Configuration Compliance Exceptions
