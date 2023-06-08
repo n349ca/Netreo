@@ -1,12 +1,12 @@
-# Netreo API Tools
+# Netreo API Tools and Hidden URLs
 
 __NOTE: This is not a Netreo supported site.__ 
 
-There are a variety of tools presented here.
+There are a variety of tools and URLs presented here.
 All scripts and executables use HTTPS and an API key. 
 Under each of the directories you will find a README that walks you through setup for that specific section.
 
-    Tool directories for API Access include:
+    The Various directories for URL and API Access include:
     - CURL - curl can be run from Windows, MAC, and Linux - a quick and easy API access method
     - Excel VBA scripts - for those familiar with Excel Macros there are a suite of differnt VBA scripts
     - EXE files are Windows only executables that are compiled from the Python scripts
