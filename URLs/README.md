@@ -110,3 +110,16 @@ The URL presented here is for Failed Logons for the last 90 days.
 
      Audit Log - Failed Logons
      - /admin/audit_log.php?device_name=&user=&edit_location=&message=login+failure&time_option=1&report_time=90dy&result_limit=1000&display_option=html&does_not_match=&submit_report=Get+Audit+Log
+
+Devices Under Management  
+
+Shows by count of devices and if they are up or not.
+
+     Lists by Category
+     - /admin/da-index.php
+
+     List by Site
+     - /admin/da-index.php?view=1
+
+     List by Device Type
+     - /admin/da-index.php?view=2
