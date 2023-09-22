@@ -6,7 +6,7 @@ As you find new URL's please add them to this list to help others!!!
 
 ***NOTE:*** the URLs below are partial URLs meaning that they would be placed after your Netreo server name. For instance https://netreo.lap.com would be your server name and then you would add to this a URL from below. 
 
-This one has a ton of debug info and is a complex Debug page. 
+This one has a ton of debug info and is a complex Debug page. NOT AVAILABLE ON SaaS SYSTEMS
 
      Netreo Debug Page (click on Status 200 to expand the full menu)
      - /fw/index.php?r=debug/default/index
